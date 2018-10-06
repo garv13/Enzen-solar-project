@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enzen_Solar.Android", "Enzen_Solar\Enzen_Solar.Android\Enzen_Solar.Android.csproj", "{201911CA-2500-4D3E-8AC1-B2834F8B1FC0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enzen_Solar", "Enzen_Solar\Enzen_Solar\Enzen_Solar.csproj", "{5CB62CF0-9349-45AF-9922-E0A0FD0BD14C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOTSolar", "..\..\IOTSolar\IOTSolar\IOTSolar.csproj", "{1DB10931-FBB0-4CC4-A576-A34C265E56CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{5CB62CF0-9349-45AF-9922-E0A0FD0BD14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CB62CF0-9349-45AF-9922-E0A0FD0BD14C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CB62CF0-9349-45AF-9922-E0A0FD0BD14C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
