@@ -1,3 +1,4 @@
+using Enzen_Solar.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace Enzen_Solar
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new HamburgerMenu();
 		}
 
 		protected override void OnStart ()
