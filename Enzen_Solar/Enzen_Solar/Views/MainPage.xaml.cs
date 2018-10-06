@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Enzen_Solar
+namespace Enzen_Solar.Views
 {
 	public partial class MainPage : TabbedPage
 	{
