@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enzen_Solar", "Enzen_Solar\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOTSolar", "..\..\IOTSolar\IOTSolar\IOTSolar.csproj", "{1DB10931-FBB0-4CC4-A576-A34C265E56CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{98782252-0BA6-4793-B42A-BF6D83DA890A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DB10931-FBB0-4CC4-A576-A34C265E56CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98782252-0BA6-4793-B42A-BF6D83DA890A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98782252-0BA6-4793-B42A-BF6D83DA890A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98782252-0BA6-4793-B42A-BF6D83DA890A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98782252-0BA6-4793-B42A-BF6D83DA890A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
