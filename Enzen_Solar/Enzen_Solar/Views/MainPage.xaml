@@ -1,34 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Enzen_Solar.Views"
-             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             x:Class="Enzen_Solar.Views.MainPage"
-             BarBackgroundColor="#2196F3"
-             BarTextColor="White"
-             android:TabbedPage.ToolbarPlacement="Bottom"
-             android:TabbedPage.BarItemColor="#66FFFFFF"
-             android:TabbedPage.BarSelectedItemColor="White">
-    
-    <ContentPage Title="Dashboard" Icon="test.png">
-        <Grid>
-            <Label Text="Dashboard Page"/>
-        </Grid>
-    </ContentPage>
-    <!--<NavigationPage Title="Share Trade">
-        <x:Arguments>
-            <local:ShareTradePage />
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="Coin Trade">
-        <x:Arguments>
-            <local:CoinTradePage />
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage Title="Roof Add">
-        <x:Arguments>
-            <local:RoofAddPage />
-        </x:Arguments>
-    </NavigationPage>-->
+             xmlns:local="clr-namespace:Enzen_Solar.Views"             
+             x:Class="Enzen_Solar.Views.MainPage">
 
-</TabbedPage>
+    <Grid x:Name="MainGrid" Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.33*"/>
+            <RowDefinition Height="0.33*"/>
+            <RowDefinition Height="0.33*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="WalletGrid" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.05*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Wallet" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Medium"/>
+            <Label x:Name="WalletBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center" Text="{Binding WalletBalance, StringFormat='Rs: {0:N}'}"/>
+            <Button x:Name="AddWalletButton" Grid.Column="1" Grid.Row="2" Text="Add" Clicked="AddWalletButton_Clicked" FontSize="Micro"/>
+            <Button x:Name="WithdrawWalletButton" Grid.Column="2" Grid.Row="2" FontSize="Micro" Text="Withdraw" Clicked="WithdrawWalletButton_Clicked"/>
+
+        </Grid>
+
+        <Grid x:Name="CoinGrid" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.05*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Coins" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Medium"/>
+            <Label x:Name="CoinBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center" Text="{Binding CoinBalance, StringFormat=' {0:N} Coins'}"/>
+            <Button x:Name="PayBillButton" Grid.Column="1" Grid.Row="2" Text="Pay Bill" Clicked="PayBillButton_Clicked" FontSize="Micro"/>
+            <Button x:Name="TradeCoinButton" Grid.Column="2" Grid.Row="2" Text="Trade" FontSize="Micro" TextColor="Black" Clicked="TradeCoinButton_Clicked"/>
+
+        </Grid>
+
+        <Grid x:Name="ShareGrid" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+                <RowDefinition Height="0.33*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.45*"/>
+                <ColumnDefinition Width="0.05*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Shares" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Medium"/>
+            <Label x:Name="ShareBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
+                       HorizontalTextAlignment="Center" Text="{Binding ShareBalance, StringFormat=' {0:N} Shares'}"/>
+            <Button x:Name="TradeShareButton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Text="Trade" FontSize="Micro" HorizontalOptions="Center" Clicked="TradeShareButton_Clicked"/>
+        </Grid>
+    </Grid>
+</ContentPage>
