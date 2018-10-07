@@ -29,27 +29,27 @@ namespace Enzen_Solar.Views
 
         private void AddWalletButton_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new AddMoneyPage());
         }
 
         private void WithdrawWalletButton_Clicked(object sender, EventArgs e)
         {
-
+            DisplayAlert("Oops", "This feature is coming soon", "CLOSE");
         }
 
         private void PayBillButton_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new PayBillPage());
         }
 
         private void TradeCoinButton_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new CoinTradePage());
         }
 
         private void TradeShareButton_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ShareTradePage());
         }
     }
 }

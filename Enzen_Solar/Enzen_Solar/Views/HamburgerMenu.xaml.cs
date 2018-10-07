@@ -26,6 +26,8 @@ namespace Enzen_Solar.Views
                 new Menu{ Page= new ShareTradePage(),MenuTitle="Share Trading", icon="message.png"},
                 new Menu{ Page= new CoinTradePage(),MenuTitle="Coin Trading",icon="contacts.png"},
                 new Menu{ Page= new RoofAddPage(),MenuTitle="Add Roof", icon="settings.png"},
+                new Menu{ Page= new AddMoneyPage(),MenuTitle="Add Money", icon="settings.png"},
+                new Menu{ Page= new PayBillPage(),MenuTitle="Bill Pay", icon="settings.png"}
             };
             ListMenu.ItemsSource = menu;
         }
