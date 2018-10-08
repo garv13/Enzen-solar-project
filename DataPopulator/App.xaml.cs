@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,9 @@ namespace DataPopulator
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://iotsolar.azurewebsites.net");
+
         public App()
         {
             this.InitializeComponent();
