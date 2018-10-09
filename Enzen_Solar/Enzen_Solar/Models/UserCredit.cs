@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Enzen_Solar.Models
 {
-    public class UserCredit
+    class UserCredit
     {
+        public string Id { get; set; }
+
         public int UserId { get; set; }
 
         public string TotalCoins { get; set; }
@@ -15,6 +19,5 @@ namespace Enzen_Solar.Models
         public string WalletBalance { get; set; }
 
         public string TradeCoins { get; set; }
-
     }
 }

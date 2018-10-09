@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Enzen_Solar.Models
 {
-    class Market
+    class Mapping
     {
-        //TODO : Add mechanism for market
-
         public string Id { get; set; }
+        public int RoofId { get; set; }
+        public string DeviceId { get; set; }    
 
     }
 }
