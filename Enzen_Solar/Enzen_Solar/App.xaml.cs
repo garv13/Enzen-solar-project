@@ -1,4 +1,5 @@
 using Enzen_Solar.Views;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,14 +9,17 @@ namespace Enzen_Solar
 {
 	public partial class App : Application
 	{
-		public App ()
+        public App ()
 		{
 			InitializeComponent();
-
+            UserID = 1;
 			MainPage = new HamburgerMenu();
 		}
+        public static int UserID;
 
-		protected override void OnStart ()
+        public static MobileServiceClient MobileService = new MobileServiceClient("https://iotsolar.azurewebsites.net");
+
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
