@@ -17,11 +17,13 @@ namespace Enzen_Solar.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            Xamarin.FormsMaps.Init(this, bundle);
+
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
-        }
+        }    
     }
 }
 
