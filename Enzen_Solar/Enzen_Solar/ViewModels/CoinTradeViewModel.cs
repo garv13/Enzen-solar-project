@@ -11,7 +11,7 @@ namespace Enzen_Solar.ViewModels
     {
         public ListViewModel()
         {
-             
+            
         }
 
         public string ListQuantity { get; set; }
