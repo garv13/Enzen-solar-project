@@ -38,12 +38,9 @@ namespace Enzen_Solar.Views
                 var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
                 MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
                                                              Distance.FromMiles(1)));
-                //var zoomLevel = 9; // between 1 and 18
-                //var latlongdegrees = 360 / (Math.Pow(2, zoomLevel));
-                //MyMap.MoveToRegion(new MapSpan(MyMap.VisibleRegion.Center, latlongdegrees, latlongdegrees));
-                ViewModel.Latitude = position.Latitude.ToString();
-                ViewModel.Longitude = position.Longitude.ToString();
                 
+                ViewModel.Latitude = position.Latitude.ToString();
+                ViewModel.Longitude = position.Longitude.ToString();                
             }
 
             catch(Exception e)
