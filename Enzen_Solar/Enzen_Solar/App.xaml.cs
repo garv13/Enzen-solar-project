@@ -33,5 +33,6 @@ namespace Enzen_Solar
 		{
 			// Handle when your app resumes
 		}
+
 	}
 }

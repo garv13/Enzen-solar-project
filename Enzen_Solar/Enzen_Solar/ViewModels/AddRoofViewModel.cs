@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enzen_Solar.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -14,26 +15,39 @@ namespace Enzen_Solar.ViewModels
         private string _investNeed;
         private string _sharePer;
         private string _costPerShare;
+        private string _latitude;
+        private string _longitude;
 
         public ICommand PublishCommand { get; private set; }
 
 
         public AddRoofViewModel()
         {
-            CoinPotential = "1";
-            RoofSize = "2";
-            TotalShare = "3";
-            InvestNeed = "4";
-            SharePer = "5";
-            CostPerShare = "6";
-
             PublishCommand = new Command(publishCommandHandler);
         }
 
         private async void publishCommandHandler()
         {
-            var a = CoinPotential;
-            var b = RoofSize;
+            try
+            {
+                Roof obj = new Roof();
+                obj.Size = int.Parse(_roofSize);
+                obj.Percentage = int.Parse(_sharePer);
+                obj.Potential = double.Parse(_coinPotential);
+                obj.TotalShares = int.Parse(_totalShare);
+                obj.Investment = int.Parse(_investNeed);
+                obj.CostPerShare = int.Parse(_costPerShare);
+                obj.latitude = double.Parse(_latitude);
+                obj.longitude = double.Parse(_longitude);
+                obj.UserId = App.UserID;
+                obj.RoofId = 212121;
+                obj.SharesAvailable = int.Parse(_totalShare) - int.Parse(_sharePer);
+                await App.MobileService.GetTable<Roof>().InsertAsync(obj);
+            }
+            catch(Exception e)
+            {
+
+            }
         }
 
         public string CoinPotential
@@ -106,6 +120,30 @@ namespace Enzen_Solar.ViewModels
             {
                 _costPerShare = value;
                 OnPropertyChanged(CostPerShare);
+            }
+        }
+        public string Latitude
+        {
+            get
+            {
+                return _latitude;
+            }
+            set
+            {
+                _latitude = value;
+                OnPropertyChanged(Latitude);
+            }
+        }
+        public string Longitude
+        {
+            get
+            {
+                return _longitude;
+            }
+            set
+            {
+                _longitude = value;
+                OnPropertyChanged(Longitude);
             }
         }
 

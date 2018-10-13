@@ -9,12 +9,11 @@ namespace Enzen_Solar.Models
     class Roof
     {
         public string Id { get; set; }
-        public double TotalCoins { get; set; }
         public double Potential { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
         public int TotalShares { get; set; }
-        public int SharesAvailable { get; set; }
+        public double SharesAvailable { get; set; }
         public int Percentage { get; set; }
         public int RoofId { get; set; }
         public int Investment { get; set; }

@@ -65,13 +65,13 @@ namespace Enzen_Solar.ViewModels
             }
         }
 
-        private void handleSellCoinCommand()
+        private async void handleSellCoinCommand()
         {
             var a = _rate;
             var b = 3;
         }
 
-        private void handleBuyCoinCommand(ListViewModel item)
+        private async void handleBuyCoinCommand(ListViewModel item)
         {
             var e = item.ListQuantity;
             var w = item.ListRate;

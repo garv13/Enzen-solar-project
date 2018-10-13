@@ -9,7 +9,6 @@ namespace Models
     class Roof
     {
         public string Id { get; set; }
-        public double TotalCoins { get; set; }
         public double Potential { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
