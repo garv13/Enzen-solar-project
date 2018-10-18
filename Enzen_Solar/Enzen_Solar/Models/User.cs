@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Enzen_Solar.Models
 {
-    public class User
+    class User
     {
+        public string Id { get; set; }
         public int UseriD { get; set; }
 
         public string FirstName { get; set; }
@@ -19,6 +22,5 @@ namespace Enzen_Solar.Models
         public string UserName { get; set; }
 
         public string Password { get; set; }
-
     }
 }

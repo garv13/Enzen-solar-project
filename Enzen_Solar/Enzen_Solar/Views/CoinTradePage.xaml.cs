@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enzen_Solar.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,13 @@ namespace Enzen_Solar.Views
 	{
 		public CoinTradePage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+            MainGrid.BindingContext = new CoinTradeViewModel();
 		}
-	}
+
+        private void PayBillButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PayBillPage());
+        }
+    }
 }

@@ -3,10 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Enzen_Solar.Views.CoinTradePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+            </Grid.RowDefinitions>
+            <ListView  x:Name="lstView" RowHeight="60" ItemsSource="{Binding ListViewObj}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Olive">
+                                    <Label Text = "{Binding ListQuantity}" FontSize="Small" HorizontalOptions="Start"/>
+                                    <Label Text = "{Binding ListRate}" FontSize="Small" HorizontalOptions="Center"/>
+                                    <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity"/>
+                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate"/>
+                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}"/>
+            </StackLayout>
+
+            <Label x:Name="CoinBalanceLabel" Grid.Row="2" Text="{Binding CoinBalance, StringFormat ='Balance Coin: {0:N}'}" 
+                   FontSize="Small" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+
+            <Button x:Name="PayBillButton" Text="Pay Bill" Clicked="PayBillButton_Clicked" Grid.Row="3" HorizontalOptions="Center"/>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
