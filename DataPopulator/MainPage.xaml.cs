@@ -19,6 +19,13 @@ namespace DataPopulator
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
+    /// 
+    /// 
+    /// Adds 3 users
+    /// 1 roof
+    /// 100 shares distributed as 5%, 30%, 65%
+    /// 1 mapping
+    /// 3 user credit
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -34,10 +41,10 @@ namespace DataPopulator
             item.DeviceId = "5f37a6af-7b02-471d-b5a7-8ec57d1f6d43";
             item.RoofId = 1;
             await App.MobileService.GetTable<Mapping>().InsertAsync(item);
-            item = new Mapping();
-            item.DeviceId = "c114a1a2-43c5-4b63-bcb2-4efe65c2cc82";
-            item.RoofId = 2;
-            await App.MobileService.GetTable<Mapping>().InsertAsync(item);
+            //item = new Mapping();
+            //item.DeviceId = "c114a1a2-43c5-4b63-bcb2-4efe65c2cc82";
+            //item.RoofId = 2;
+            //await App.MobileService.GetTable<Mapping>().InsertAsync(item);
 
             //adding users
 
@@ -76,36 +83,104 @@ namespace DataPopulator
             };
             await App.MobileService.GetTable<User>().InsertAsync(u);
 
-            u = new User
-            {
-                Email = "test@akg.com",
-                FirstName = "Amit",
-                LastName = "Kumar",
-                Mobile = "17982023",
-                Password = "1234",
-                UserName = "Amit",
-                UseriD = 4
-            };
-            await App.MobileService.GetTable<User>().InsertAsync(u);
-            u = new User
-            {
-                Email = "billi@akg.com",
-                FirstName = "Ram",
-                LastName = "Gupta",
-                Mobile = "9876543210",
-                Password = "1234",
-                UserName = "Ram",
-                UseriD = 5
-            };
-            await App.MobileService.GetTable<User>().InsertAsync(u);
+            //u = new User
+            //{
+            //    Email = "test@akg.com",
+            //    FirstName = "Amit",
+            //    LastName = "Kumar",
+            //    Mobile = "17982023",
+            //    Password = "1234",
+            //    UserName = "Amit",
+            //    UseriD = 4
+            //};
+            //await App.MobileService.GetTable<User>().InsertAsync(u);
+            //u = new User
+            //{
+            //    Email = "billi@akg.com",
+            //    FirstName = "Ram",
+            //    LastName = "Gupta",
+            //    Mobile = "9876543210",
+            //    Password = "1234",
+            //    UserName = "Ram",
+            //    UseriD = 5
+            //};
+            //await App.MobileService.GetTable<User>().InsertAsync(u);
 
 
             //roof
-          
+            Roof r = new Roof {
+                 Investment=100000,
+                 RoofId=1,
+                  Percentage=5,
+                   Potential=1,
+                    SharesAvailable=0,
+                     TotalShares=100,
+                      Size=100,
+                       UserId=1,
+                        CostPerShare = 7829190123,
+                         latitude=30.12,
+                          longitude=-73.12
 
+            };
+            await App.MobileService.GetTable<Roof>().InsertAsync(r);
+
+            // shares
+
+            for (int i = 0; i < 100; i++)
+            {
+
+                Share s = new Share();
+                s.IsTradeable = false;
+                s.Price = 10;
+                s.ShareId = i + 1;
+                s.RoofId = 1;
+                if (i < 5)
+                {
+                    s.UserId = 1;
+                }
+                else if(i<35)
+                {
+                    s.UserId = 2;
+
+                }
+                else
+                { s.UserId = 3; }
+
+                await App.MobileService.GetTable<Share>().InsertAsync(s);
 
             }
+            // User Credit
+            UserCredit uc = new UserCredit {
+             UserId=1,
+             CoinsMined= 10000,
+             WalletBalance=100000,
+             TradeCoins=1000,
+             shares = 5};
+            await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
+
+            uc = new UserCredit
+            {
+                UserId = 2,
+                CoinsMined = 7000,
+                WalletBalance = 100000,
+                TradeCoins = 500,
+                shares = 30
+            };
+            await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
+            uc = new UserCredit
+            {
+                UserId = 3,
+                CoinsMined = 100000,
+                WalletBalance = 100000,
+                TradeCoins = 10000,
+                shares = 65
+            };
+            await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
+
+
 
         }
+
     }
-}
+    }
+

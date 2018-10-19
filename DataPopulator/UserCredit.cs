@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModDataPopulatorels
+namespace DataPopulator
 {
     class UserCredit
     {
@@ -12,12 +12,12 @@ namespace ModDataPopulatorels
 
         public int UserId { get; set; }
 
-        public string TotalCoins { get; set; }
+        public int shares { get; set; }
 
-        public string CoinsMined { get; set; }
+        public int CoinsMined { get; set; }
 
-        public string WalletBalance { get; set; }
+        public int WalletBalance { get; set; }
 
-        public string TradeCoins { get; set; }
+        public int TradeCoins { get; set; }
     }
 }
