@@ -1,13 +1,14 @@
 ﻿using Enzen_Solar.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Enzen_Solar.ViewModels
 {
-    public class AddRoofViewModel : BindableObject 
+    public class AddRoofViewModel : BindableObject , INotifyPropertyChanged
     {
         private string _coinPotential;
         private string _roofSize;
@@ -20,9 +21,12 @@ namespace Enzen_Solar.ViewModels
 
         public ICommand PublishCommand { get; private set; }
 
+        new public event PropertyChangedEventHandler PropertyChanged;
 
         public AddRoofViewModel()
         {
+            _coinPotential = "2";
+            _totalShare = "0";
             PublishCommand = new Command(publishCommandHandler);
         }
 
@@ -50,6 +54,17 @@ namespace Enzen_Solar.ViewModels
             }
         }
 
+        protected override void OnPropertyChanged(string propertyName)
+        {          
+            if(propertyName == "RoofSize")
+            {
+                _totalShare = (int.Parse(_roofSize) * int.Parse(_coinPotential)).ToString();
+                OnPropertyChanged("TotalShare");
+            }
+            var propertyChangedCallback = PropertyChanged;
+            propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }   
+
         public string CoinPotential
         {
             get
@@ -59,7 +74,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _coinPotential = value;
-                OnPropertyChanged(CoinPotential);
+                OnPropertyChanged("CoinPotential");
             }
         }
         public string RoofSize
@@ -71,7 +86,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _roofSize = value;
-                OnPropertyChanged(RoofSize);
+                OnPropertyChanged("RoofSize");
             }
         }
         public string TotalShare
@@ -83,7 +98,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _totalShare = value;
-                OnPropertyChanged(TotalShare);
+                OnPropertyChanged("TotalShare");
             }
         }
         public string InvestNeed
@@ -95,7 +110,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _investNeed = value;
-                OnPropertyChanged(InvestNeed);
+                OnPropertyChanged("InvestNeed");
             }
         }
         public string SharePer
@@ -107,7 +122,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _sharePer = value;
-                OnPropertyChanged(SharePer);
+                OnPropertyChanged("SharePer");
             }
         }
         public string CostPerShare
@@ -119,7 +134,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _costPerShare = value;
-                OnPropertyChanged(CostPerShare);
+                OnPropertyChanged("CostPerShare");
             }
         }
         public string Latitude
@@ -131,7 +146,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _latitude = value;
-                OnPropertyChanged(Latitude);
+                OnPropertyChanged("Latitude");
             }
         }
         public string Longitude
@@ -143,7 +158,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _longitude = value;
-                OnPropertyChanged(Longitude);
+                OnPropertyChanged("Longitude");
             }
         }
 
