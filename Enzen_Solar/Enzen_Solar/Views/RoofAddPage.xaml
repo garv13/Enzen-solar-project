@@ -34,7 +34,7 @@
                     <Label Text="Roof Size :" FontSize="Small" Grid.Row="1"/>
                     <Label Text="Total Shares :" FontSize="Small" Grid.Row="2"/>
                     <Label Text="Investment Needed :" FontSize="Small" Grid.Row="3"/>
-                    <Label Text="Share % :" FontSize="Small" Grid.Row="4"/>
+                    <Label Text="Shares :" FontSize="Small" Grid.Row="4"/>
                     <Label Text="Cost Per Share :" FontSize="Small" Grid.Row="5"/>
 
                     <Label Text="{Binding CoinPotential}" Grid.Row="0" Grid.Column="1"/>

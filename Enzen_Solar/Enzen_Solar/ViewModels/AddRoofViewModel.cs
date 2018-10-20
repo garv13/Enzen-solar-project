@@ -44,7 +44,7 @@ namespace Enzen_Solar.ViewModels
                 obj.latitude = double.Parse(_latitude);
                 obj.longitude = double.Parse(_longitude);
                 obj.UserId = App.UserID;
-                obj.RoofId = 212121;
+                obj.RoofId = 21;
                 obj.SharesAvailable = int.Parse(_totalShare) - int.Parse(_sharePer);
                 await App.MobileService.GetTable<Roof>().InsertAsync(obj);
             }
@@ -59,7 +59,15 @@ namespace Enzen_Solar.ViewModels
             if(propertyName == "RoofSize")
             {
                 _totalShare = (int.Parse(_roofSize) * int.Parse(_coinPotential)).ToString();
+                _investNeed = (int.Parse(_roofSize) * 4500).ToString();
                 OnPropertyChanged("TotalShare");
+                OnPropertyChanged("InvestNeed");
+            }
+
+            if (propertyName == "SharePer")
+            {
+                _costPerShare = (int.Parse(_investNeed) / (int.Parse(_totalShare) - int.Parse(_sharePer))).ToString();
+                OnPropertyChanged("CostPerShare");
             }
             var propertyChangedCallback = PropertyChanged;
             propertyChangedCallback?.Invoke(this, new PropertyChangedEventArgs(propertyName));
