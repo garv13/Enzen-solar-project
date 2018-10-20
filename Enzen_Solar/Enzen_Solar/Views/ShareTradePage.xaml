@@ -47,7 +47,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label Text="Secondare Market" HorizontalOptions="Start" Grid.Row="2" />
+            <Label Text="Secondary Market" HorizontalOptions="Start" Grid.Row="2" />
 
             <ListView x:Name="lstViewSecondary" RowHeight="40" ItemsSource="{Binding SecondaryShareListViewObj}" Grid.Row="3" BackgroundColor="#E5E5E5">
                 <ListView.Header>
