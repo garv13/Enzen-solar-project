@@ -14,8 +14,8 @@
             IsShowingUser="true"
             MapType="Hybrid"
         />
-            <ScrollView Grid.Row="1" HorizontalScrollBarVisibility="Default" VerticalScrollBarVisibility="Default">
-                <Grid IsVisible="True">
+            <ScrollView Grid.Row="1" HorizontalScrollBarVisibility="Default" VerticalScrollBarVisibility="Default" Padding="0" Margin="0">
+                <Grid ColumnSpacing="0" RowSpacing="0" Padding="0" Margin="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.1*"/>
                         <RowDefinition Height="0.1*"/>

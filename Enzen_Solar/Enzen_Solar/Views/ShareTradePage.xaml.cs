@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enzen_Solar.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Enzen_Solar.Views
 		public ShareTradePage ()
 		{
 			InitializeComponent ();
-		}
+            MainGrid.BindingContext = new ShareTradeViewModel();
+        }
 	}
 }
