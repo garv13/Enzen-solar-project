@@ -23,7 +23,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _walletBalance = value;
-                OnPropertyChanged(WalletBalance);
+                OnPropertyChanged("WalletBalance");
             }
         }
 
@@ -36,7 +36,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _coinBalance = value;
-                OnPropertyChanged(CoinBalance);
+                OnPropertyChanged("CoinBalance");
             }
         }
 
@@ -49,15 +49,12 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _shareBalance = value;
-                OnPropertyChanged(ShareBalance);
+                OnPropertyChanged("ShareBalance");
             }
         }
 
         public MainPageViewModel()
         {
-            WalletBalance = "12";
-            CoinBalance = "89";
-            ShareBalance = "56";
             getUserData();
         }
 

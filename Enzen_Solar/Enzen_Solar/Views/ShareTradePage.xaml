@@ -1,12 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Enzen_Solar.Views.ShareTradePage">
+             x:Class="Enzen_Solar.Views.ShareTradePage" Title="Share Trade">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid x:Name="MainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+            <Label Text="New Shares" HorizontalOptions="Start" />
+            <ListView x:Name="lstViewNew" RowHeight="40" ItemsSource="{Binding NewShareListViewObj}" Grid.Row="1" BackgroundColor="#E5E5E5">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text = "Quantity" FontSize="Micro" HorizontalOptions="Center"/>
+                        <Label Text = "Rate" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                        <Label Text = "Qty Purchase" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Micro" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListRate}" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" FontSize="Micro" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Secondare Market" HorizontalOptions="Start" Grid.Row="2" />
+
+            <ListView x:Name="lstViewSecondary" RowHeight="40" ItemsSource="{Binding SecondaryShareListViewObj}" Grid.Row="3" BackgroundColor="#E5E5E5">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text = "Quantity" FontSize="Micro" HorizontalOptions="Center"/>
+                        <Label Text = "Rate" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                        <Label Text = "Qty Purchase" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Micro" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListRate}" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" FontSize="Micro" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="My Shares" HorizontalOptions="Start" Grid.Row="4"/>
+
+            <ListView x:Name="lstViewMyShare" RowHeight="40" ItemsSource="{Binding MyShareListViewObj}" Grid.Row="5" BackgroundColor="#E5E5E5">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text = "Year" FontSize="Micro" HorizontalOptions="Center"/>
+                        <Label Text = "Quantity" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                        <Label Text = "Qty Sell" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                        <Label Text = "Rate" FontSize="Micro" HorizontalOptions="Center" Grid.Column="3"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text = "{Binding ListYear}" FontSize="Micro" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Entry Text = "{Binding PurchaseRate}" Placeholder="Rate" FontSize="Micro" HorizontalOptions="Center" Grid.Column="3"/>
+                                <Button Text="Sell" Command="{Binding SellCommand}" FontSize="Micro" CommandParameter="{Binding .}" Grid.Column="4" HorizontalOptions="Center"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

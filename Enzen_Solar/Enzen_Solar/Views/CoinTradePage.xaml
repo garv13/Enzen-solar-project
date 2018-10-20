@@ -1,34 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Enzen_Solar.Views.CoinTradePage">
+             x:Class="Enzen_Solar.Views.CoinTradePage" Title="Coin Trade">
     <ContentPage.Content>
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"/>
-                <RowDefinition Height="0.15*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <ListView  x:Name="lstView" RowHeight="60" ItemsSource="{Binding ListViewObj}">
+            <ListView  x:Name="lstView" RowHeight="40" ItemsSource="{Binding ListViewObj}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Olive">
-                                    <Label Text = "{Binding ListQuantity}" FontSize="Small" HorizontalOptions="Start"/>
-                                    <Label Text = "{Binding ListRate}" FontSize="Small" HorizontalOptions="Center"/>
-                                    <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
-                            </StackLayout>
+                            <Grid BackgroundColor="#E5E5E5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Small" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListRate}" FontSize="Small" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="2" HorizontalOptions="Center"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
                 <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity"/>
-                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate"/>
-                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}"/>
-            </StackLayout>
+                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate" Grid.Column="1"/>
+                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}" Grid.Column="2"/>
+            </Grid>
 
             <Label x:Name="CoinBalanceLabel" Grid.Row="2" Text="{Binding CoinBalance, StringFormat ='Balance Coin: {0:N}'}" 
                    FontSize="Small" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>

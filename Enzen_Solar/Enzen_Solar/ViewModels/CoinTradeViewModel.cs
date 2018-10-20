@@ -48,7 +48,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _quantity = value;
-                OnPropertyChanged(Quantity);
+                OnPropertyChanged("Quantity");
             }
         }
 
@@ -61,7 +61,7 @@ namespace Enzen_Solar.ViewModels
             set
             {
                 _rate = value;
-                OnPropertyChanged(Rate);
+                OnPropertyChanged("Rate");
             }
         }
 
