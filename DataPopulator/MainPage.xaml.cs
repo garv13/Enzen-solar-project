@@ -93,7 +93,7 @@ namespace DataPopulator
                 UserName = "admin",
                 UseriD = 0
             };
-            //await App.MobileService.GetTable<User>().InsertAsync(u);
+            await App.MobileService.GetTable<User>().InsertAsync(u);
             //u = new User
             //{
             //    Email = "billi@akg.com",
@@ -175,6 +175,7 @@ namespace DataPopulator
                 TradeCoins = 10000,
                 shares = 65
             };
+            await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
             uc = new UserCredit
             {
                 UserId = 0,
@@ -192,8 +193,16 @@ namespace DataPopulator
 
         private async void button1_Click(object sender, RoutedEventArgs e)
         {
-           
-            
+           UserCredit uc = new UserCredit
+            {
+                UserId = 3,
+                CoinsMined = 100000,
+                WalletBalance = 100000,
+                TradeCoins = 10000,
+                shares = 65
+            };
+            await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
+
         }
     }
     }
