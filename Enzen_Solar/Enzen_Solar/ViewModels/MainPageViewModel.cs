@@ -66,8 +66,8 @@ namespace Enzen_Solar.ViewModels
             if(UserCreditList.Count == 1)
             {
                 WalletBalance = UserCreditList[0].WalletBalance;
-                CoinBalance = UserCreditList[0].CoinsMined;
-                ShareBalance = UserCreditList[0].TradeCoins;
+                CoinBalance = UserCreditList[0].TradeCoins;
+                ShareBalance = UserCreditList[0].Shares.ToString();
             }
         }
     }

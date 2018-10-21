@@ -12,9 +12,9 @@ namespace Enzen_Solar.Models
 
         public int UserId { get; set; }
 
-        public string TotalCoins { get; set; }
-
         public string CoinsMined { get; set; }
+
+        public int Shares { get; set; }
 
         public string WalletBalance { get; set; }
 

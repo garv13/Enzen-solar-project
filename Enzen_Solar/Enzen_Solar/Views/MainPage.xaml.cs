@@ -13,9 +13,13 @@ namespace Enzen_Solar.Views
 		public MainPage()
 		{
 			InitializeComponent();
-            MainGrid.BindingContext = new MainPageViewModel();
 		}
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MainGrid.BindingContext = new MainPageViewModel();
+        }
         private void AddWalletButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddMoneyPage());

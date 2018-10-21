@@ -21,7 +21,7 @@ namespace Enzen_Solar.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MainGrid.BindingContext = new ShareTradeViewModel();
+            MainGrid.BindingContext = new ShareTradeViewModel(Navigation);
         }
     }
 }

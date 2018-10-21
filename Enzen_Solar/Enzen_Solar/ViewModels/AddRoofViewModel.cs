@@ -1,4 +1,5 @@
 ﻿using Enzen_Solar.Models;
+using Enzen_Solar.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,8 +24,11 @@ namespace Enzen_Solar.ViewModels
 
         new public event PropertyChangedEventHandler PropertyChanged;
 
-        public AddRoofViewModel()
+        INavigation Navigation;
+
+        public AddRoofViewModel(INavigation navigation)
         {
+            Navigation = navigation;
             _coinPotential = "2";
             _totalShare = "0";
             PublishCommand = new Command(publishCommandHandler);
@@ -47,6 +51,7 @@ namespace Enzen_Solar.ViewModels
                 obj.RoofId = 21;
                 obj.SharesAvailable = int.Parse(_totalShare) - int.Parse(_sharePer);
                 await App.MobileService.GetTable<Roof>().InsertAsync(obj);
+                Navigation.PushModalAsync(new HamburgerMenu());
             }
             catch(Exception e)
             {
