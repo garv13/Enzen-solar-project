@@ -17,6 +17,8 @@ namespace Enzen_Solar
 		}
         public static int UserID;
 
+        public const int AdminUserID = 0;
+
         public static MobileServiceClient MobileService = new MobileServiceClient("https://iotsolar.azurewebsites.net");
 
         protected override void OnStart ()

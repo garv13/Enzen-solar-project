@@ -15,8 +15,13 @@ namespace Enzen_Solar.Views
 	{
 		public ShareTradePage ()
 		{
-			InitializeComponent ();
+			InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             MainGrid.BindingContext = new ShareTradeViewModel();
         }
-	}
+    }
 }
