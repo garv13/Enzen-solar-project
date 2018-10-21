@@ -16,7 +16,7 @@ namespace Enzen_Solar.Views
 		public CoinTradePage ()
 		{
 			InitializeComponent();
-            MainGrid.BindingContext = new CoinTradeViewModel();
+            MainGrid.BindingContext = new CoinTradeViewModel(Navigation);
 		}
 
         private void PayBillButton_Clicked(object sender, EventArgs e)
