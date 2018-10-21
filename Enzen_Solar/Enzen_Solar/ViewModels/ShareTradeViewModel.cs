@@ -1,4 +1,5 @@
 ﻿using Enzen_Solar.Models;
+using Enzen_Solar.Views;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
@@ -78,8 +79,11 @@ namespace Enzen_Solar.ViewModels
         public ICommand NewShareBuyCommand { get; set; }
         public ICommand SecondaryShareBuyCommand { get; set; }
 
-        public ShareTradeViewModel()
+        public INavigation Navigation;
+
+        public ShareTradeViewModel(INavigation navigation)
         {
+            Navigation = navigation;
             NewShareListViewObj = new ObservableCollection<NewShareListViewModel>();
             SecondaryShareListViewObj = new ObservableCollection<SecondaryShareListViewModel>();
             MyShareListViewObj = new ObservableCollection<MyShareListViewModel>();
@@ -131,6 +135,7 @@ namespace Enzen_Solar.ViewModels
                     SecondaryShareListViewModel temp = new SecondaryShareListViewModel();
                     temp.ListRate = share.Key.ToString();
                     temp.ListQuantity = distinctList[share.Key].Count().ToString();
+                    temp.BuyCommand = SecondaryShareBuyCommand;
                     SecondaryShareListViewObj.Add(temp);
                 }
             }
@@ -173,6 +178,7 @@ namespace Enzen_Solar.ViewModels
                     UserShareList[i].Price = price;
                     await App.MobileService.GetTable<Share>().UpdateAsync(UserShareList[i]);
                 }
+                await Navigation.PushModalAsync(new HamburgerMenu());
             }
 
             catch (Exception) { }            
@@ -197,15 +203,25 @@ namespace Enzen_Solar.ViewModels
 
                 var Buyer = await userCreditTable.Where(x => x.UserId == App.UserID).ToCollectionAsync();
                 Buyer[0].WalletBalance = (int.Parse(Buyer[0].WalletBalance) - cost).ToString();
+                Buyer[0].Shares = Buyer[0].Shares + qty;
                 await userCreditTable.UpdateAsync(Buyer[0]);
 
                 var AdminUser = await userCreditTable.Where(x => x.UserId == App.AdminUserID).ToCollectionAsync();
                 AdminUser[0].WalletBalance = (int.Parse(AdminUser[0].WalletBalance) + cost).ToString();
                 await userCreditTable.UpdateAsync(AdminUser[0]);
 
+                for(int i = 0; i < qty; i++)
+                {
+                    Share temp = new Share{ UserId = App.UserID,RoofId = item.RoofID ,IsTradeable = false, ShareId = 1,Price = cost };
+                    await userShareTable.InsertAsync(temp);
+                }
+                await Navigation.PushModalAsync(new HamburgerMenu());
             }
 
-            catch (Exception) { }
+            catch (Exception e)
+            {
+                var o = 1;
+            }
         }
 
 
@@ -222,24 +238,34 @@ namespace Enzen_Solar.ViewModels
                 for (int i = 0; i < qty; i++)
                 {
                     AvailableShares[i].IsTradeable = false;
-                    UserWalletUpdate[AvailableShares[i].UserId] = UserWalletUpdate[AvailableShares[i].UserId] + 1;
+                    if (UserWalletUpdate.ContainsKey(AvailableShares[i].UserId))
+                        UserWalletUpdate[AvailableShares[i].UserId] = UserWalletUpdate[AvailableShares[i].UserId] + 1;
+                    else
+                        UserWalletUpdate.Add(AvailableShares[i].UserId, 1);
                     AvailableShares[i].UserId = App.UserID;
                     await userShareTable.UpdateAsync(AvailableShares[i]);
                 }
 
                 var Buyer = await userCreditTable.Where(x => x.UserId == App.UserID).ToCollectionAsync();
                 Buyer[0].WalletBalance = (int.Parse(Buyer[0].WalletBalance) - cost).ToString();
+                Buyer[0].Shares = Buyer[0].Shares + qty;
+
                 await userCreditTable.UpdateAsync(Buyer[0]);
 
                 foreach (var a in UserWalletUpdate)
                 {
                     var Seller = await userCreditTable.Where(x => x.UserId == a.Key).ToCollectionAsync();
                     Seller[0].WalletBalance = (int.Parse(Seller[0].WalletBalance) + cost * a.Value).ToString();
+                    Seller[0].Shares = Seller[0].Shares - a.Value;
                     await userCreditTable.UpdateAsync(Seller[0]);
                 }
+                await Navigation.PushModalAsync(new HamburgerMenu());
             }
 
-            catch (Exception) { }            
+            catch (Exception e)
+            {
+
+            }            
         }
 
     }

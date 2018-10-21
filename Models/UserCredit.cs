@@ -16,6 +16,8 @@ namespace Models
 
         public string CoinsMined { get; set; }
 
+        public int Shares { get; set; }
+
         public string WalletBalance { get; set; }
 
         public string TradeCoins { get; set; }

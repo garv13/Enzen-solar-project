@@ -20,7 +20,7 @@ namespace Enzen_Solar.Views
         public RoofAddPage ()
 		{
 			InitializeComponent ();
-            ViewModel = new AddRoofViewModel();
+            ViewModel = new AddRoofViewModel(Navigation);
             MainGrid.BindingContext = ViewModel;
             Appearing += RoofAddPage_Appearing;
         }
