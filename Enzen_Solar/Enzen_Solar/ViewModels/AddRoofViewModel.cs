@@ -48,7 +48,7 @@ namespace Enzen_Solar.ViewModels
                 obj.latitude = double.Parse(_latitude);
                 obj.longitude = double.Parse(_longitude);
                 obj.UserId = App.UserID;
-                obj.RoofId = 21;
+                obj.RoofId = 2;
                 obj.SharesAvailable = int.Parse(_totalShare) - int.Parse(_sharePer);
                 await App.MobileService.GetTable<Roof>().InsertAsync(obj);
                 Navigation.PushModalAsync(new HamburgerMenu());

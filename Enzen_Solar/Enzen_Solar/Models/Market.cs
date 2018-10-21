@@ -14,9 +14,9 @@ namespace Enzen_Solar.Models
 
         public int UserId { get; set; }
 
-        public string CoinQuantity { get; set; }
+        public int CoinQuantity { get; set; }
 
-        public string PerCoinRate { get; set; }
+        public int PerCoinRate { get; set; }
 
     }
 }

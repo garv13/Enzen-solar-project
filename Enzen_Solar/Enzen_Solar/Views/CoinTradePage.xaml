@@ -5,12 +5,25 @@
     <ContentPage.Content>
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="160"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <ListView  x:Name="lstView" RowHeight="40" ItemsSource="{Binding ListViewObj}">
+            <ListView  x:Name="lstView" RowHeight="40" ItemsSource="{Binding ListViewObj}" SeparatorVisibility="Default" SeparatorColor="Black">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="0.25*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text = "Quantity" FontSize="Micro" HorizontalOptions="Center"/>
+                        <Label Text = "Rate" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                        <Label Text = "Quantity Purchase" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                    </Grid>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -18,11 +31,13 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
-                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                    <ColumnDefinition Width="0.25*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text = "{Binding ListQuantity}" FontSize="Small" HorizontalOptions="Center"/>
-                                <Label Text = "{Binding ListRate}" FontSize="Small" HorizontalOptions="Center" Grid.Column="1"/>
-                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="2" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Micro" HorizontalOptions="Center"/>
+                                <Label Text = "{Binding ListRate}" FontSize="Micro" HorizontalOptions="Center" Grid.Column="1"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Micro" HorizontalOptions="Center" Grid.Column="2"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" FontSize="Micro"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -35,15 +50,15 @@
                     <ColumnDefinition Width="0.25*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity"/>
-                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate" Grid.Column="1"/>
-                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}" Grid.Column="2"/>
+                <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity" FontSize="Micro"/>
+                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate" Grid.Column="1" FontSize="Micro"/>
+                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}" Grid.Column="2" FontSize="Micro"/>
             </Grid>
 
             <Label x:Name="CoinBalanceLabel" Grid.Row="2" Text="{Binding CoinBalance, StringFormat ='Balance Coin: {0:N}'}" 
-                   FontSize="Small" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                   HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" FontSize="Micro"/>
 
-            <Button x:Name="PayBillButton" Text="Pay Bill" Clicked="PayBillButton_Clicked" Grid.Row="3" HorizontalOptions="Center"/>
+            <Button x:Name="PayBillButton" Text="Pay Bill" Clicked="PayBillButton_Clicked" Grid.Row="3" HorizontalOptions="Center" FontSize="Micro"/>
             
         </Grid>
     </ContentPage.Content>
