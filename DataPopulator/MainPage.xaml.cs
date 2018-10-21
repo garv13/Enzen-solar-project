@@ -181,6 +181,20 @@ namespace DataPopulator
 
         }
 
+        private async void button1_Click(object sender, RoutedEventArgs e)
+        {
+            User u = new User
+            {
+                Email = "Admin@solar.com",
+                FirstName = "Admin",
+                LastName = "Solar",
+                Mobile = "9876543210",
+                Password = "1234",
+                UserName = "Admin",
+                UseriD = 0
+            };
+            await App.MobileService.GetTable<User>().InsertAsync(u);
+        }
     }
     }
 
