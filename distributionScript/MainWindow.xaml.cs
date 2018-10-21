@@ -120,22 +120,22 @@ namespace distributionScript
                                                     if (a4.HasRows)
 
                                                     {
-                                                        double coi = 0;
+                                                        double coin2 = 0;
 
                                                         while (a4.Read())
                                                         {
 
 
-                                                            coi = a4.GetDouble(a4.GetOrdinal("tradecoins"));
+                                                            coin2 = a4.GetDouble(a4.GetOrdinal("tradecoins"));
                                                             //add coin
 
 
 
                                                         }
                                                         a4.Close();
-                                                        coi += 0.9 * coin / user.Count;
+                                                        coin2 += 0.9 * coin / user.Count;
                                                         sb = new StringBuilder();
-                                                        sb.Append("UPDATE usercredit SET TradeCoins =  " + coi + " WHERE userid = " +j);
+                                                        sb.Append("UPDATE usercredit SET TradeCoins =  " + coin2 + " WHERE userid = " +j);
 
                                                         sql = sb.ToString();
                                                         using (SqlCommand command5 = new SqlCommand(sql, connection))
@@ -154,10 +154,53 @@ namespace distributionScript
                                                 }
                                             }// coins distrubuted to users.. now we need to give coins to admins and update coin in message as 0;
 
+                                            sb = new StringBuilder();
+                                            sb.Append("UPDATE message SET coins = 0 where deviceid ='" + id + "'");
+
+                                            sql = sb.ToString();
+                                            using (SqlCommand command5 = new SqlCommand(sql, connection))
+                                            {
+
+
+                                                command5.ExecuteNonQuery();
+                                            }
+
+                                            sb = new StringBuilder();
+                                            sb.Append("SELECT tradecoins FROM usercredit WHERE userid = 0");
+
+
+                                            sql = sb.ToString();
+                                            double coi = 0;
+                                            using (SqlCommand command4 = new SqlCommand(sql, connection))
+                                            {
+                                                SqlDataReader a4 = await command4.ExecuteReaderAsync();
+                                                if (a4.HasRows)
+
+                                                {
+                                                    
+
+                                                    while (a4.Read())
+                                                    {
+
+
+                                                        coi = a4.GetDouble(a4.GetOrdinal("tradecoins"));
+                                                        //add coin
 
 
 
+                                                    }
+                                                }
+                                            }
+                                            sb = new StringBuilder();
+                                            sb.Append("UPDATE usercredit SET coins ="+coi + 0.10*coin+" where userid =0");
 
+                                            sql = sb.ToString();
+                                            using (SqlCommand command5 = new SqlCommand(sql, connection))
+                                            {
+
+
+                                                command5.ExecuteNonQuery();
+                                            }
 
 
                                         }

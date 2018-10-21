@@ -83,16 +83,16 @@ namespace DataPopulator
             };
             await App.MobileService.GetTable<User>().InsertAsync(u);
 
-            //u = new User
-            //{
-            //    Email = "test@akg.com",
-            //    FirstName = "Amit",
-            //    LastName = "Kumar",
-            //    Mobile = "17982023",
-            //    Password = "1234",
-            //    UserName = "Amit",
-            //    UseriD = 4
-            //};
+            u = new User
+            {
+                Email = "admin@akg.com",
+                FirstName = "admin",
+                LastName = "solar",
+                Mobile = "17982023",
+                Password = "1234",
+                UserName = "admin",
+                UseriD = 0
+            };
             //await App.MobileService.GetTable<User>().InsertAsync(u);
             //u = new User
             //{
@@ -175,6 +175,15 @@ namespace DataPopulator
                 TradeCoins = 10000,
                 shares = 65
             };
+            uc = new UserCredit
+            {
+                UserId = 0,
+                CoinsMined = 0,
+                WalletBalance = 100000,
+                TradeCoins = 1000,
+                shares = 0
+            };
+            
             await App.MobileService.GetTable<UserCredit>().InsertAsync(uc);
 
 
@@ -183,17 +192,8 @@ namespace DataPopulator
 
         private async void button1_Click(object sender, RoutedEventArgs e)
         {
-            User u = new User
-            {
-                Email = "Admin@solar.com",
-                FirstName = "Admin",
-                LastName = "Solar",
-                Mobile = "9876543210",
-                Password = "1234",
-                UserName = "Admin",
-                UseriD = 0
-            };
-            await App.MobileService.GetTable<User>().InsertAsync(u);
+           
+            
         }
     }
     }
