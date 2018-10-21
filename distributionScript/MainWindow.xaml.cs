@@ -193,13 +193,13 @@ namespace distributionScript
                                             }
                                             sb = new StringBuilder();
                                             sb.Append("UPDATE usercredit SET coins ="+coi + 0.10*coin+" where userid =0");
-
+                                            
                                             sql = sb.ToString();
-                                            using (SqlCommand command5 = new SqlCommand(sql, connection))
+                                            using (SqlCommand command6 = new SqlCommand(sql, connection))
                                             {
 
 
-                                                command5.ExecuteNonQuery();
+                                                command6.ExecuteNonQuery();
                                             }
 
 

@@ -112,6 +112,8 @@
     <None Include="Admin_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\8386d0f8d4fdc1dca15bf53e1c1f7086.jpg" />
+    <Content Include="Assets\India-CSP-DNI-1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
