@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,34 @@ namespace Admin
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        IMobileServiceTable<UserCredit> userCreditTable;
+        private MobileServiceCollection<UserCredit, UserCredit> UserShareList;
         public MainPage()
         {
             this.InitializeComponent();
+            Loaded += MainPage_Loaded;
+        }
+
+        private async void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            userCreditTable = App.MobileService.GetTable<UserCredit>();
+            UserShareList = await userCreditTable.Where(UserCredit => UserCredit.UserId == 0).ToCollectionAsync();
+            UserCredit c = UserShareList[0];
+            Investment.Text = c.WalletBalance.ToString();
+            Coin.Text = c.TradeCoins.ToString();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string s = deviceId.Text;
+            Mapping map = new Mapping { DeviceId = s, RoofId = 2 };
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Heatmap));
+            //navogate to next page
         }
     }
 }
