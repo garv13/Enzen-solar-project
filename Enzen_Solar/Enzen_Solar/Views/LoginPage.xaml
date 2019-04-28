@@ -4,16 +4,17 @@
              x:Class="Enzen_Solar.Views.LoginPage" 
              Title="Login">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center">
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Solar Funds" FontSize="Large" HorizontalOptions="Start" VerticalOptions="Start" TextColor="#E6A312" FontAttributes="Bold"/>
             <Entry x:Name="UsernameEntry" Placeholder="Username"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
             <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
             <Button x:Name="LoginButton" Text="Login"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"  Clicked="LoginButton_Clicked"/>
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"  Clicked="LoginButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

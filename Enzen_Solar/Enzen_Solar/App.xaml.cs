@@ -13,7 +13,7 @@ namespace Enzen_Solar
 		{
 			InitializeComponent();
             UserID = 2;
-			MainPage = new HamburgerMenu();
+			MainPage = new LoginPage();
 		}
         public static int UserID;
 
