@@ -39,7 +39,6 @@ namespace Enzen_Solar.ViewModels
                 OnPropertyChanged("CoinBalance");
             }
         }
-
         public string ShareBalance
         {
             get
@@ -52,22 +51,34 @@ namespace Enzen_Solar.ViewModels
                 OnPropertyChanged("ShareBalance");
             }
         }
-
         public MainPageViewModel()
         {
-            getUserData();
+            try
+            {
+                getUserData();
+            }
+            catch (Exception e)
+            {
+                return;
+            }
         }
-
         private async void getUserData()
         {
-            IMobileServiceTable <UserCredit> userCreditTable = App.MobileService.GetTable<UserCredit>();
-            MobileServiceCollection<UserCredit, UserCredit> UserCreditList = await userCreditTable.Where
-                (UserCredit => UserCredit.UserId == App.UserID).ToCollectionAsync();
-            if(UserCreditList.Count == 1)
+            try
             {
-                WalletBalance = UserCreditList[0].WalletBalance;
-                CoinBalance = UserCreditList[0].TradeCoins;
-                ShareBalance = UserCreditList[0].Shares.ToString();
+                IMobileServiceTable<UserCredit> userCreditTable = App.MobileService.GetTable<UserCredit>();
+                MobileServiceCollection<UserCredit, UserCredit> UserCreditList = await userCreditTable.Where
+                    (UserCredit => UserCredit.UserId == App.UserID).ToCollectionAsync();
+                if (UserCreditList.Count == 1)
+                {
+                    WalletBalance = int.Parse(UserCreditList[0].WalletBalance) < 0 ? "0" : UserCreditList[0].WalletBalance;
+                    CoinBalance = Math.Round(float.Parse(UserCreditList[0].TradeCoins), 2).ToString();
+                    ShareBalance = UserCreditList[0].Shares.ToString();
+                }
+            }
+            catch (Exception e)
+            {
+
             }
         }
     }

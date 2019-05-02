@@ -11,9 +11,17 @@ namespace Enzen_Solar
 	{
         public App ()
 		{
-			InitializeComponent();
-            UserID = 2;
-			MainPage = new LoginPage();
+            try
+            {
+                InitializeComponent();
+                UserID = 2;
+                MainPage = new LoginPage();
+            }
+            catch(Exception e)
+            {
+
+            }
+			
 		}
         public static int UserID;
 

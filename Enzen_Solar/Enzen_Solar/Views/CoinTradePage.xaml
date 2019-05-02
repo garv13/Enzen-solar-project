@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Enzen_Solar.Views.CoinTradePage" Title="Coin Trade">
     <ContentPage.Content>
-        <Grid x:Name="MainGrid" Padding="5">
+        <Grid x:Name="MainGrid" Padding="5" BackgroundColor="#343741">
             <Grid.RowDefinitions>
                 <RowDefinition Height="320"/>
                 <RowDefinition Height="auto"/>
@@ -19,25 +19,25 @@
                             <ColumnDefinition Width="0.25*"/>
                             <ColumnDefinition Width="0.25*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text = "Quantity" FontSize="Medium" HorizontalOptions="Center"/>
-                        <Label Text = "Rate" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                        <Label Text = "Quantity Purchase" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
+                        <Label Text = "Quantity" FontSize="Large" HorizontalOptions="Center" TextColor="#E6E6D5" FontAttributes="Bold"/>
+                        <Label Text = "Rate" FontSize="Large" HorizontalOptions="Center" Grid.Column="1" TextColor="#E6E6D5" FontAttributes="Bold"/>
+                        <Label Text = "Quantity Purchase" FontSize="Large" HorizontalOptions="Center" Grid.Column="2" TextColor="#E6E6D5" FontAttributes="Bold"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid BackgroundColor="#E5E5E5">
+                            <Grid BackgroundColor="Transparent">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text = "{Binding ListQuantity}" FontSize="Medium" HorizontalOptions="Center"/>
-                                <Label Text = "{Binding ListRate}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
-                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" FontSize="Medium" BackgroundColor="#FF9494"/>
+                                <Label Text = "{Binding ListQuantity}" FontSize="Medium" HorizontalOptions="Center" TextColor="#E6E6D5"/>
+                                <Label Text = "{Binding ListRate}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1" TextColor="#E6E6D5"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2" TextColor="#E6E6D5" PlaceholderColor="#E6E6D5"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" FontSize="Large" BackgroundColor="#F2B65C" TextColor="#343741"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -50,15 +50,15 @@
                     <ColumnDefinition Width="0.25*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity" FontSize="Medium"/>
-                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate" Grid.Column="1" FontSize="Medium"/>
-                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}" Grid.Column="2" FontSize="Medium"/>
+                <Entry x:Name="QuantityEntry" Text="{Binding Quantity, Mode=TwoWay}" Placeholder="Quantity" FontSize="Large" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                <Entry x:Name="RateEntry" Text="{Binding Rate, Mode=TwoWay}" Placeholder="Rate" Grid.Column="1" FontSize="Large" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                <Button x:Name="SellButton" Text="Sell" Command="{Binding SellCommand}" Grid.Column="2" FontSize="Large" BackgroundColor="#BBEB83" TextColor="#343741"/>
             </Grid>
 
             <Label x:Name="CoinBalanceLabel" Grid.Row="2" Text="{Binding CoinBalance, StringFormat ='Balance Coin: {0:N}'}" 
-                   HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" FontSize="Medium"/>
+                   HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" FontSize="Large"/>
 
-            <Button x:Name="PayBillButton" Text="Pay Bill" Clicked="PayBillButton_Clicked" Grid.Row="3" HorizontalOptions="Center" FontSize="Medium"/>
+            <Button x:Name="PayBillButton" Text="Pay Bill" Clicked="PayBillButton_Clicked" Grid.Row="3" HorizontalOptions="Center" FontSize="Large" TextColor="#343741" BackgroundColor="#BCBABA"/>
             
         </Grid>
     </ContentPage.Content>

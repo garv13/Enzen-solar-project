@@ -4,17 +4,21 @@
              x:Class="Enzen_Solar.Views.LoginPage" 
              Title="Login">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="Solar Funds" FontSize="Large" HorizontalOptions="Start" VerticalOptions="Start" TextColor="#E6A312" FontAttributes="Bold"/>
-            <Entry x:Name="UsernameEntry" Placeholder="Username"
+        <Grid>
+            <Image Source="solar_login.jpg" Aspect="AspectFill" Opacity="0.4" />
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Solar Funds" FontSize="36" HorizontalOptions="Start" VerticalOptions="Start" TextColor="#E6A312" FontAttributes="Bold"/>
+                <Entry x:Name="UsernameEntry" Placeholder="Username" PlaceholderColor="White" TextColor="White"
                 VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-            <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-            <Button x:Name="LoginButton" Text="Login"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"  Clicked="LoginButton_Clicked"/>
-        </StackLayout>
+                HorizontalOptions="Center" FontSize="28"/>
+                <Entry x:Name="PasswordEntry" Placeholder="Password" PlaceholderColor="White" IsPassword="True" TextColor="White"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"  FontSize="28"/>
+                <Button x:Name="LoginButton" Text="Login"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"  Clicked="LoginButton_Clicked" FontSize="28" TextColor="#343741" BackgroundColor="#BCBABA"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

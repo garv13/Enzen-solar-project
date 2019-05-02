@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Enzen_Solar.Views"             
              x:Class="Enzen_Solar.Views.MainPage" Title="Dashboard">
 
-    <Grid x:Name="MainGrid" Margin="0">
+    <Grid x:Name="MainGrid" Margin="0" BackgroundColor="#343741">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.33*"/>
             <RowDefinition Height="0.33*"/>
@@ -24,11 +24,11 @@
                 <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Text="Wallet" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large"/>
+            <Label Text="Wallet" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large" TextColor="White" FontAttributes="Bold"/>
             <Label x:Name="WalletBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
-                       HorizontalTextAlignment="Center" Text="{Binding WalletBalance, StringFormat='Rs: {0:N}'}" FontSize="Large"/>
-            <Button x:Name="AddWalletButton" Grid.Column="1" Grid.Row="2" Text="Add" Clicked="AddWalletButton_Clicked" FontSize="Medium"/>
-            <Button x:Name="WithdrawWalletButton" Grid.Column="2" Grid.Row="2" FontSize="Medium" Text="Withdraw" Clicked="WithdrawWalletButton_Clicked"/>
+                       HorizontalTextAlignment="Center" Text="{Binding WalletBalance, StringFormat='Rs: {0:N}'}" FontSize="Large" TextColor="White"/>
+            <Button x:Name="AddWalletButton" Grid.Column="1" Grid.Row="2" Text="Add" Clicked="AddWalletButton_Clicked" FontSize="Large" TextColor="#343741" BackgroundColor="#54A7C4"/>
+            <Button x:Name="WithdrawWalletButton" Grid.Column="2" Grid.Row="2" FontSize="Large" Text="Withdraw" Clicked="WithdrawWalletButton_Clicked" TextColor="#343741" BackgroundColor="#8CBDCE"/>
 
         </Grid>
 
@@ -45,11 +45,11 @@
                 <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Text="Coins" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large"/>
+            <Label Text="Coins" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large" TextColor="White" FontAttributes="Bold"/>
             <Label x:Name="CoinBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
-                       HorizontalTextAlignment="Center" Text="{Binding CoinBalance, StringFormat=' {0:N} Coins'}" FontSize="Large"/>
-            <Button x:Name="PayBillButton" Grid.Column="1" Grid.Row="2" Text="Pay Bill" Clicked="PayBillButton_Clicked" FontSize="Medium"/>
-            <Button x:Name="TradeCoinButton" Grid.Column="2" Grid.Row="2" Text="Trade" FontSize="Medium" TextColor="Black" Clicked="TradeCoinButton_Clicked"/>
+                       HorizontalTextAlignment="Center" Text="{Binding CoinBalance, StringFormat=' {0:N} Coins'}" FontSize="Large" TextColor="White"/>
+            <Button x:Name="PayBillButton" Grid.Column="1" Grid.Row="2" Text="Pay Bill" Clicked="PayBillButton_Clicked" FontSize="Large" TextColor="#343741" BackgroundColor="#54A7C4"/>
+            <Button x:Name="TradeCoinButton" Grid.Column="2" Grid.Row="2" Text="Trade" FontSize="Large" Clicked="TradeCoinButton_Clicked" TextColor="#343741" BackgroundColor="#8CBDCE"/>
 
         </Grid>
 
@@ -66,10 +66,10 @@
                 <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Text="Shares" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large"/>
+            <Label Text="Shares" Margin="5,0,0,0" Grid.ColumnSpan="4" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="Large" TextColor="White" FontAttributes="Bold"/>
             <Label x:Name="ShareBalanceLabel" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" 
-                       HorizontalTextAlignment="Center" Text="{Binding ShareBalance, StringFormat=' {0:N} Shares'}" FontSize="Large"/>
-            <Button x:Name="TradeShareButton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Text="Trade" FontSize="Medium" HorizontalOptions="Center" Clicked="TradeShareButton_Clicked"/>
+                       HorizontalTextAlignment="Center" Text="{Binding ShareBalance, StringFormat=' {0:N} Shares'}" FontSize="Large" TextColor="White"/>
+            <Button x:Name="TradeShareButton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Text="Trade" FontSize="Large" HorizontalOptions="Center" Clicked="TradeShareButton_Clicked" TextColor="#343741" BackgroundColor="#BCBABA"/>
         </Grid>
     </Grid>
 </ContentPage>

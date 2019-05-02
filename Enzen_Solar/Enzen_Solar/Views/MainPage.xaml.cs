@@ -14,11 +14,17 @@ namespace Enzen_Solar.Views
 		{
 			InitializeComponent();
 		}
-
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            MainGrid.BindingContext = new MainPageViewModel();
+            try
+            {
+                base.OnAppearing();
+                MainGrid.BindingContext = new MainPageViewModel();
+            }
+            catch(Exception e)
+            {
+                DisplayAlert("Oops", "Couldn't connect to Azure :(:( Keep Trying!!", "CLOSE");
+            }
         }
         private void AddWalletButton_Clicked(object sender, EventArgs e)
         {

@@ -9,14 +9,17 @@ using Xamarin.Forms.Xaml;
 
 namespace Enzen_Solar.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
-	{
-		public LoginPage ()
-		{
-			InitializeComponent ();
-		}
-
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
+    {
+        public LoginPage()
+        {
+            InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            UsernameEntry.Focus();
+        }
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
             App.UserID = int.Parse(UsernameEntry.Text);

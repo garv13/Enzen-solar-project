@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Enzen_Solar.Views.ShareTradePage" Title="Share Trade">
     <ContentPage.Content>
-        <Grid x:Name="MainGrid" Padding="5">
+        <Grid x:Name="MainGrid" Padding="5" BackgroundColor="#343741">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="0.3*"/>
@@ -12,8 +12,8 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="0.3*"/>
             </Grid.RowDefinitions>
-            <Label Text="New Shares" HorizontalOptions="Start" FontSize="Large"/>
-            <ListView x:Name="lstViewNew" RowHeight="60" ItemsSource="{Binding NewShareListViewObj}" Grid.Row="1" BackgroundColor="#E5E5E5">
+            <Label Text="New Shares" HorizontalOptions="Start" FontSize="Large" TextColor="#E6E6D5" FontAttributes="Bold"/>
+            <ListView x:Name="lstViewNew" RowHeight="60" ItemsSource="{Binding NewShareListViewObj}" Grid.Row="1" BackgroundColor="Transparent">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -22,9 +22,9 @@
                             <ColumnDefinition Width="0.25*"/>
                             <ColumnDefinition Width="0.25*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text = "Quantity" FontSize="Medium" HorizontalOptions="Center"/>
-                        <Label Text = "Rate" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                        <Label Text = "Qty Purchase" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
+                        <Label Text = "Quantity" HorizontalOptions="Center" FontSize="Large" TextColor="#E6E6D5"/>
+                        <Label Text = "Rate" HorizontalOptions="Center" Grid.Column="1" FontSize="Large" TextColor="#E6E6D5"/>
+                        <Label Text = "Qty Purchase" HorizontalOptions="Center" Grid.Column="2" FontSize="Large" TextColor="#E6E6D5"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -37,19 +37,19 @@
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text = "{Binding ListQuantity}" FontSize="Medium" HorizontalOptions="Center"/>
-                                <Label Text = "{Binding ListRate}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
-                                <Button Text="Buy" Command="{Binding BuyCommand}" FontSize="Medium" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" BackgroundColor="#FF9494"/>
+                                <Label Text = "{Binding ListQuantity}" HorizontalOptions="Center" FontSize="Medium" TextColor="#E6E6D5" />
+                                <Label Text = "{Binding ListRate}" HorizontalOptions="Center" Grid.Column="1" FontSize="Medium" TextColor="#E6E6D5"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" HorizontalOptions="Center" Grid.Column="2" FontSize="Medium" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" FontSize="Large" BackgroundColor="#F2B65C" TextColor="#343741"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label Text="Secondary Market" HorizontalOptions="Start" Grid.Row="2" FontSize="Large"/>
+            <Label Text="Secondary Market" HorizontalOptions="Start" Grid.Row="2" FontSize="Large" TextColor="#E6E6D5" FontAttributes="Bold"/>
 
-            <ListView x:Name="lstViewSecondary" RowHeight="60" ItemsSource="{Binding SecondaryShareListViewObj}" Grid.Row="3" BackgroundColor="#E5E5E5">
+            <ListView x:Name="lstViewSecondary" RowHeight="60" ItemsSource="{Binding SecondaryShareListViewObj}" Grid.Row="3" BackgroundColor="Transparent">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -58,9 +58,9 @@
                             <ColumnDefinition Width="0.25*"/>
                             <ColumnDefinition Width="0.25*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text = "Quantity" FontSize="Medium" HorizontalOptions="Center"/>
-                        <Label Text = "Rate" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                        <Label Text = "Qty Purchase" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
+                        <Label Text = "Quantity" HorizontalOptions="Center" FontSize="Large" TextColor="#E6E6D5"/>
+                        <Label Text = "Rate" HorizontalOptions="Center" Grid.Column="1" FontSize="Large" TextColor="#E6E6D5"/>
+                        <Label Text = "Qty Purchase" HorizontalOptions="Center" Grid.Column="2" FontSize="Large" TextColor="#E6E6D5"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -73,19 +73,19 @@
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text = "{Binding ListQuantity}" FontSize="Medium" HorizontalOptions="Center"/>
-                                <Label Text = "{Binding ListRate}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
-                                <Button Text="Buy" Command="{Binding BuyCommand}" FontSize="Medium" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" BackgroundColor="#FF9494"/>
+                                <Label Text = "{Binding ListQuantity}" HorizontalOptions="Center" FontSize="Medium" TextColor="#E6E6D5"/>
+                                <Label Text = "{Binding ListRate}" HorizontalOptions="Center" Grid.Column="1" FontSize="Medium" TextColor="#E6E6D5"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" HorizontalOptions="Center" Grid.Column="2" FontSize="Medium" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                                <Button Text="Buy" Command="{Binding BuyCommand}" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" FontSize="Large" BackgroundColor="#F2B65C" TextColor="#343741"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label Text="My Shares" HorizontalOptions="Start" Grid.Row="4" FontSize="Large"/>
+            <Label Text="My Shares" HorizontalOptions="Start" Grid.Row="4" FontSize="Large" TextColor="#E6E6D5" FontAttributes="Bold"/>
 
-            <ListView x:Name="lstViewMyShare" RowHeight="60" ItemsSource="{Binding MyShareListViewObj}" Grid.Row="5" BackgroundColor="#E5E5E5">
+            <ListView x:Name="lstViewMyShare" RowHeight="60" ItemsSource="{Binding MyShareListViewObj}" Grid.Row="5" BackgroundColor="Transparent">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -94,9 +94,9 @@
                             <ColumnDefinition Width="0.25*"/>
                             <ColumnDefinition Width="0.25*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text = "Quantity" FontSize="Medium" HorizontalOptions="Center" Grid.Column="0"/>
-                        <Label Text = "Qty Sell" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                        <Label Text = "Rate" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
+                        <Label Text = "Quantity" HorizontalOptions="Center" Grid.Column="0" FontSize="Large"  TextColor="#E6E6D5"/>
+                        <Label Text = "Qty Sell" HorizontalOptions="Center" Grid.Column="1" FontSize="Large" TextColor="#E6E6D5" />
+                        <Label Text = "Rate" HorizontalOptions="Center" Grid.Column="2" FontSize="Large" TextColor="#E6E6D5"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -109,10 +109,10 @@
                                     <ColumnDefinition Width="0.25*"/>
                                     <ColumnDefinition Width="0.25*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text = "{Binding ListQuantity}" FontSize="Medium" HorizontalOptions="Center" Grid.Column="0"/>
-                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" FontSize="Medium" HorizontalOptions="Center" Grid.Column="1"/>
-                                <Entry Text = "{Binding PurchaseRate}" Placeholder="Rate" FontSize="Medium" HorizontalOptions="Center" Grid.Column="2"/>
-                                <Button Text="Sell" Command="{Binding SellCommand}" FontSize="Medium" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center" BackgroundColor="#94DAB2"/>
+                                <Label Text = "{Binding ListQuantity}" HorizontalOptions="Center" Grid.Column="0" FontSize="Medium"  TextColor="#E6E6D5"/>
+                                <Entry Text = "{Binding QuantityPurchase}" Placeholder="Qty" HorizontalOptions="Center" Grid.Column="1" FontSize="Medium" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                                <Entry Text = "{Binding PurchaseRate}" Placeholder="Rate" HorizontalOptions="Center" Grid.Column="2" FontSize="Medium" PlaceholderColor="#E6E6D5" TextColor="#E6E6D5"/>
+                                <Button Text="Sell" Command="{Binding SellCommand}" FontSize="Large" CommandParameter="{Binding .}" Grid.Column="3" HorizontalOptions="Center"  BackgroundColor="#BBEB83" TextColor="#343741"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
