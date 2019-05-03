@@ -29,7 +29,7 @@ namespace Enzen_Solar.ViewModels
         public AddRoofViewModel(INavigation navigation)
         {
             Navigation = navigation;
-            _coinPotential = "2";
+            _coinPotential = "15";
             _totalShare = "0";
             PublishCommand = new Command(publishCommandHandler);
         }
@@ -64,14 +64,15 @@ namespace Enzen_Solar.ViewModels
             if(propertyName == "RoofSize")
             {
                 _totalShare = (int.Parse(_roofSize) * int.Parse(_coinPotential)).ToString();
-                _investNeed = (int.Parse(_roofSize) * 4500).ToString();
+                _investNeed = (int.Parse(_roofSize) * 160).ToString();
                 OnPropertyChanged("TotalShare");
                 OnPropertyChanged("InvestNeed");
             }
 
             if (propertyName == "SharePer")
             {
-                _costPerShare = (int.Parse(_investNeed) / (int.Parse(_totalShare) - int.Parse(_sharePer))).ToString();
+                double costpersharev = double.Parse(_investNeed) / (double.Parse(_totalShare) - double.Parse(_sharePer));
+                _costPerShare = costpersharev.ToString();
                 OnPropertyChanged("CostPerShare");
             }
             var propertyChangedCallback = PropertyChanged;
