@@ -107,8 +107,27 @@ namespace Enzen_Solar.ViewModels
             {
                 if (UserShareList != null)
                     UserShareList.Clear();
+                
                 UserShareList = await userShareTable.Where
                     (Share => Share.UserId == App.UserID && Share.IsTradeable == false).ToCollectionAsync();
+                UserShareList.Clear();
+
+                var list = await App.MobileService.GetTable<Share>().Take(0).Where
+                   (Share => Share.UserId == App.UserID && Share.IsTradeable == false).IncludeTotalCount().ToListAsync();
+
+                int tCount = (int)((IQueryResultEnumerable<Share>)list).TotalCount;
+
+                int icount = tCount;
+                int skip = 0;
+                while (icount >= 0)
+                {
+                    list.AddRange(await App.MobileService.GetTable<Share>().Skip(skip).Take(50).Where
+                    (Share => Share.UserId == App.UserID && Share.IsTradeable == false).IncludeTotalCount().ToListAsync());
+                    skip += 50;
+                    icount -= 50;
+                }
+                list.ForEach(x => UserShareList.Add(x));
+
                 if (UserShareList.Count != 0)
                 {
                     // group by year
@@ -119,7 +138,10 @@ namespace Enzen_Solar.ViewModels
                 }
             }
             
-            catch (Exception) { }
+            catch (Exception e)
+            {
+
+            }
         }
 
         private async void PopulateSecondaryMarket()

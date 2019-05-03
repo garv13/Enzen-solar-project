@@ -66,14 +66,35 @@ namespace Enzen_Solar.ViewModels
         {
             try
             {
+                MobileServiceCollection<Share, Share> UserShareList;
+                IMobileServiceTable<Share> userShareTable;
+                userShareTable = App.MobileService.GetTable<Share>();
+
                 IMobileServiceTable<UserCredit> userCreditTable = App.MobileService.GetTable<UserCredit>();
+
+                var list = await App.MobileService.GetTable<Share>().Take(0).Where
+                    (Share => Share.UserId == App.UserID && Share.IsTradeable == false).IncludeTotalCount().ToListAsync();
+
+                int tCount = (int)((IQueryResultEnumerable<Share>)list).TotalCount;
+
+                int icount = tCount;
+                int skip = 0;
+                while (icount >= 0)
+                {
+                    list.AddRange(await App.MobileService.GetTable<Share>().Skip(skip).Take(50).Where
+                    (Share => Share.UserId == App.UserID && Share.IsTradeable == false).IncludeTotalCount().ToListAsync());
+                    skip += 50;
+                    icount -= 50;
+                }
+                    
                 MobileServiceCollection<UserCredit, UserCredit> UserCreditList = await userCreditTable.Where
                     (UserCredit => UserCredit.UserId == App.UserID).ToCollectionAsync();
+
                 if (UserCreditList.Count == 1)
                 {
                     WalletBalance = int.Parse(UserCreditList[0].WalletBalance) < 0 ? "0" : UserCreditList[0].WalletBalance;
                     CoinBalance = Math.Round(float.Parse(UserCreditList[0].TradeCoins), 2).ToString();
-                    ShareBalance = UserCreditList[0].Shares.ToString();
+                    ShareBalance = list.Count.ToString();
                 }
             }
             catch (Exception e)
