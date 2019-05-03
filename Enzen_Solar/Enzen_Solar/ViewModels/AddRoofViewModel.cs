@@ -45,8 +45,8 @@ namespace Enzen_Solar.ViewModels
                 obj.TotalShares = int.Parse(_totalShare);
                 obj.Investment = int.Parse(_investNeed);
                 obj.CostPerShare = int.Parse(_costPerShare);
-                obj.latitude = double.Parse(_latitude);
-                obj.longitude = double.Parse(_longitude);
+                obj.latitude = double.Parse("37.4220");
+                obj.longitude = double.Parse("-122.0840");
                 obj.UserId = App.UserID;
                 obj.RoofId = 2;
                 obj.SharesAvailable = int.Parse(_totalShare) - int.Parse(_sharePer);
