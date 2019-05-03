@@ -63,7 +63,7 @@
             <TextBlock Text="0002" Grid.Row="2" FontSize="34" Margin="40,0,0,0" />
             <TextBox Grid.Column="1" x:Name="deviceId" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="30,0,30,0"/>
             <TextBlock Text="Investment Needed" Grid.Row="3" Margin ="30,0,0,0" FontSize="20"/>
-            <TextBlock Text="1125000" Grid.Row="3" Grid.Column="1" Margin ="30,0,0,0" FontSize="20"/>
+            <TextBlock Text="32000" Grid.Row="3" Grid.Column="1" Margin ="30,0,0,0" FontSize="20"/>
 
             <Button Click="Button_Click" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Content="Map roof" FontSize="20"/>
             
