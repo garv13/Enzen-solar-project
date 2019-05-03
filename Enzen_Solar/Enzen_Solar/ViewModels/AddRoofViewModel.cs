@@ -44,7 +44,7 @@ namespace Enzen_Solar.ViewModels
                 obj.Potential = double.Parse(_coinPotential);
                 obj.TotalShares = int.Parse(_totalShare);
                 obj.Investment = int.Parse(_investNeed);
-                obj.CostPerShare = int.Parse(_costPerShare);
+                obj.CostPerShare = double.Parse(_costPerShare);
                 obj.latitude = double.Parse("37.4220");
                 obj.longitude = double.Parse("-122.0840");
                 obj.UserId = App.UserID;
@@ -72,7 +72,7 @@ namespace Enzen_Solar.ViewModels
             if (propertyName == "SharePer")
             {
                 double costpersharev = double.Parse(_investNeed) / (double.Parse(_totalShare) - double.Parse(_sharePer));
-                _costPerShare = costpersharev.ToString();
+                _costPerShare = Math.Round(costpersharev,2).ToString();
                 OnPropertyChanged("CostPerShare");
             }
             var propertyChangedCallback = PropertyChanged;
