@@ -8,8 +8,8 @@
                 <RowDefinition Height="320"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+                <RowDefinition Height="auto"/> 
+            </Grid.RowDefinitions> 
             <ListView  x:Name="lstView" RowHeight="60" ItemsSource="{Binding ListViewObj}" SeparatorVisibility="Default" SeparatorColor="Black">
                 <ListView.Header>
                     <Grid>
